@@ -88,7 +88,7 @@ def get_apk_info(file_path):
         version_code = match.group(2)
         version_name = match.group(3)
         match = re.compile(
-            "application: label='([\u4e00-\u9fa5_a-zA-Z0-9-\\S\s]+)'").search(stdout)
+            "application: label='([^']*)'").search(stdout)
         if not match:
             raise Exception("can't get application label")
         app_name = match.group(1)
